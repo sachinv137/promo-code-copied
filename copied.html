@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+      <p id="p1">P1: I am paragraph 1</p>
+     
+      <button id="btn" onclick="copyToClipboard('p1')">Copy P1</button>
+      
+      <br/><br/><input type="text" placeholder="Paste here for test" />
+      
+</body>
+<script>
+function copyToClipboard(elementId) {
+
+// Create a "hidden" input
+var aux = document.createElement("input");
+
+// Assign it the value of the specified element
+aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+
+// Append it to the body
+document.body.appendChild(aux);
+
+// Highlight its content
+aux.select();
+
+// Copy the highlighted text
+document.execCommand("copy");
+
+// Remove it from the body
+document.body.removeChild(aux);
+
+//button txt change
+var btn = document.getElementById("btn");
+btn.innerText="Copied";
+
+}
+</script>
+</html>
